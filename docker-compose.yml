@@ -1,0 +1,10 @@
+﻿version: '3'
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "${EXTERNAL_PORT:-8080}:${API_PORT:-5000}"  # Use 5000 as default if API_PORT is not set
+    environment:
+      - API_PORT
+      - EXTERNAL_PORT
